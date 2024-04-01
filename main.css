@@ -85,3 +85,7 @@
   font-family: cursive;
   color: seagreen;
 }
+
+.formDiv{
+  transform: translateY(-100px);
+}
