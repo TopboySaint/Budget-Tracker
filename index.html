@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <title>Landing Page</title>
 </head>
+
 <body class="bg-black">
-    <main>
-        <h1 class="text-center fw-bold py-5 header">Expense Tracker for Saints</h1>
-        <p class="text-center fw-bold para py-3">Yearly Bills and Expenses.</p>
-        <div class="form-container mx-auto">
-            <form class="form">
-              <div class="form-group">
-                <label for="email">What's your name?</label>
-                <input required="" name="email" id="email" type="text">
-              </div>
-              <button type="submit" class="form-submit-btn" onclick="proceed()">Submit</button>
-            </form>
-          </div>
-    </main>
+  <main>
+    <h1 class="text-center fw-bold mt-5 mb-3 header">Expense Tracker for Saints</h1>
+    <p class="text-center fw-bold para mb-5">Yearly Bills and Expenses.</p>
+
+    <p class="alert alert-danger text-center p-1 w-25 mx-auto animate__animated animate__shakeX" id="hideError">Fill
+      in the space</p>
+    <div class="subscribe mx-auto">
+      <p>BUDGET</p>
+      <input placeholder="Your Budget" class="subscribe-input" name="email" type="email" id="budgetInput">
+      <br>
+      <div class="submit-btn" onclick="proceed()">SUBMIT</div>
+    </div>
+
+  </main>
 
 
-    <script>
-        const proceed = () => {
-            // if(email.value === ""){
-            //     alert(no)
-            // } else{
-            window.location.href = "main.html"
-            // }
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
