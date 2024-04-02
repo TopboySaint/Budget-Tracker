@@ -59,6 +59,18 @@
         </svg>
     
     </div>
+
+    <div class="d-flex gap-5 bigDiv justify-content-center">
+        <div>
+            <input type="text/number" placeholder="Enter your Budget" class="p-2 form-control shadow-none" id="enterBudget">
+            <button class="btn btn-success d-block p-1 w-50 mt-3 mx-auto" onclick="enterAmount()">Enter</button>
+        </div>
+        <div>
+            <!-- <span class="text-white">Budget Amount:</span> -->
+            <div id="budgetAmount" class="border border-success p-2 text-white fw-bolder text-center">Budget Amount</div>
+        </div>
+    </div>
+
     <div class="col-11 mt-lg-5 mt-3 col-lg-7 mx-auto shadow-lg p-3">
         <h4 class="text-center text-success fw-bold">Budget Details</h4>
         <p class="alert alert-danger text-center p-1 w-50 mx-auto animate__animated animate__shakeX" id="msgError">Fill
@@ -68,6 +80,7 @@
         <input type="number" class="form-control form-control-sm my-3 shadow-none" placeholder="Price" id="productPrice">
     </div>
     <button onclick="addMyBudget()" class="btn btn-success w-25 mx-auto d-block btn-sm">SUBMIT</button>
+    
 
 
     <script src="script.js"></script>

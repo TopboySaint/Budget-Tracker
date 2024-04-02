@@ -18,6 +18,11 @@
   transform: translateX(200px);
 }
 
+#budgetAmount{
+  width: 180px;
+}
+
+
 .subscribe {
   position: relative;
   height: 140px;
