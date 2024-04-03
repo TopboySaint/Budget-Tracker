@@ -10,7 +10,7 @@
     <title>Main Page</title>
 </head>
 
-<body class="bg-black">
+<body class="bg-blac">
     <div class="svg-frame mx-auto">
         <svg style="--i:0;--j:0;">
             <g id="out1">
@@ -95,13 +95,13 @@
 
     <div class="d-flex gap-5 bigDiv justify-content-center">
         <div>
-            <input type="text/number" placeholder="Enter your Budget" class="p-2 form-control shadow-none"
+            <input type="text/number" placeholder="Enter your Budget" autofocus class="p-2 form-control shadow-none"
                 id="enterBudget">
             <button class="btn btn-success d-block p-1 w-50 mt-3 mx-auto" onclick="enterAmount()">Enter</button>
         </div>
         <div>
             <!-- <span class="text-white">Budget Amount:</span> -->
-            <div id="budgetAmount" class="border border-success p-2 text-white fw-bolder text-center">Budget Amount
+            <div id="budgetAmount" class="border border-success p-2 text-wh fw-bolder text-center">Budget Amount
             </div>
         </div>
     </div>
@@ -120,6 +120,8 @@
             <button onclick="delMyBudget()" class="btn btn-danger w-25 mx-auto d-block btn-sm">Delete All</button>
         </div>
     </div>
+
+    <button onclick="checking()">try</button>
     <table id="displayAll"></table>
 
 

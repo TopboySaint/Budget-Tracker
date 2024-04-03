@@ -1,25 +1,33 @@
-const myArray = [];
-let budgetProduct = productName.value;
-let budgetQuantity = productQuantity.value;
-let budgetPrice = productPrice.value;
-let budgetObject = { budgetProduct, budgetQuantity, budgetPrice };
+// const myArray = JSON.parse(localStorage.getItem('budgetValue')) || [];
+// const myArray = localStorage.getItem('BudgetsValue') ? JSON.parse(localStorage.getItem('BudgetsValue')) : [];
+ let budArray =[]
+ let budgetCash
+ let budgetObject={}
+
+// let budgetObject = { budgetProduct, budgetQuantity, budgetPrice }; 
 
 // if(localStorage.budgetValue){
 //   myArray = JSON.parse(localStorage.getItem('budgetValue'))
 // }
 
 const addMyBudget = () => {
-  let budgetProduct = productName.value;
-  let budgetQuantity = productQuantity.value;
-  let budgetPrice = productPrice.value;
-  let budgetObject = { budgetProduct, budgetQuantity, budgetPrice };
+  let budgetObject = {
+   budgetProduct : document.getElementById('productName').value,
+   budgetQuantity : Number(productQuantity.value),
+   budgetPrice : Number(productPrice.value),
+   totalPrice : Number(productPrice.value * productQuantity.value)
+   
+  
+  }
+  
 
-  if (budgetProduct === "" || budgetQuantity === "" || budgetPrice === "") {
+  if (productName.value === "" || productQuantity.value === "" || productPrice.value === "") {
     document.getElementById("msgError").style.display = "block";
   } else {
-    myArray.push(budgetObject);
-    localStorage.setItem("BudgetsValue", JSON.stringify(myArray));
-    counterBudget()
+    budArray.push(budgetObject);
+    
+    // localStorage.setItem("BudgetsValue", JSON.stringify(myArray));
+    removeOrAdd()
     // productName.value === "";
     // productQuantity.value === "";
     // productPrice.value === "";
@@ -27,10 +35,44 @@ const addMyBudget = () => {
 }
 
 const enterAmount = () => {
-  let budgetCash = document.getElementById('enterBudget').value
-  budgetCash === ""
-  budgetAmount.innerHTML = `$ ${budgetCash}`
+  budgetCash = document.getElementById('enterBudget').value
+
+  if(budgetCash==''){
+    alert('yeee')
+  }else{
+    budgetAmount.innerHTML = `$ ${budgetCash}`
+    console.log("budgetCash", budgetCash);
+  }
+ 
 }
+ const removeOrAdd = ()=>{
+  let budgetObject = {
+    budgetProduct : document.getElementById('productName').value,
+    budgetQuantity : Number(productQuantity.value),
+    budgetPrice : Number(productPrice.value),
+    totalPrice : Number(productPrice.value * productQuantity.value)
+    
+   
+   }
+  // budgetCash = document.getElementById('enterBudget').value
+// budgetCash = Number(budgetCash-budgetObject.totalPrice)
+  // console.log(budgetObject.totalPrice);
+  if(budgetObject.totalPrice > budgetCash){
+    alert('are you a thief')
+  }else if (budgetObject.totalPrice<= budgetCash){
+    budgetCash = (budgetCash - budgetObject.totalPrice)
+    amount = budgetCash
+    console.log(amount);
+    budgetAmount.innerHTML = '$'+ budgetCash
+    counterBudget()
+  }else{
+    
+    counterBudget()
+  }
+ } 
+
+
+
 
 const counterBudget = () => {
   document.getElementById('displayAll').innerHTML = ""
@@ -43,16 +85,17 @@ const counterBudget = () => {
   <td>Total Price</td>
   </tr>
   </thead>`
-  myArray.map((items, i) => {
+  budArray.map((budgetObject, i) => {
+    // console.log("items", items);
     displayAll.innerHTML += `<tbody>
   <tr>
   <td>${i + 1}</td>
   <td>${budgetObject.budgetProduct}</td>
   <td>${budgetObject.budgetQuantity}</td>
   <td>${budgetObject.budgetPrice}</td>
-  <td>${budgetObject.budgetQuantity * budgetObject.budgetPrice}</td>
+  <td>${budgetObject.totalPrice}</td>
   <td><button class="btn btn-success">Edit</button>
-  <button class="btn btn-danger">Edit</button></td>
+  <button class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>`
   })
