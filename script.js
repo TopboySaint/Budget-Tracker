@@ -4,13 +4,9 @@ let budgetQuantity = productQuantity.value;
 let budgetPrice = productPrice.value;
 let budgetObject = { budgetProduct, budgetQuantity, budgetPrice };
 
-const proceed = () => {
-  if (budgetInput.value === "") {
-    hideError.style.display = "block";
-  } else {
-    window.location.href = "main.html";
-  }
-};
+// if(localStorage.budgetValue){
+//   myArray = JSON.parse(localStorage.getItem('budgetValue'))
+// }
 
 const addMyBudget = () => {
   let budgetProduct = productName.value;
@@ -38,7 +34,7 @@ const enterAmount = () => {
 
 const counterBudget = () => {
   document.getElementById('displayAll').innerHTML = ""
-  displayAll.innerHTML = `<thead>
+  displayAll.innerHTML += `<thead>
   <tr>
   <td>S/N</td>
   <td>Product</td>
@@ -47,16 +43,17 @@ const counterBudget = () => {
   <td>Total Price</td>
   </tr>
   </thead>`
-  myArray.map((goods, i) => {
-    displayAll.innerHTML = `<tbody>
+  myArray.map((items, i) => {
+    displayAll.innerHTML += `<tbody>
   <tr>
   <td>${i + 1}</td>
-  <td>${budgetProduct}</td>
-  <td>${budgetQuantity}</td>
-  <td>${budgetPrice}</td>
-  <td>${budgetQuantity * budgetPrice}</td>
+  <td>${budgetObject.budgetProduct}</td>
+  <td>${budgetObject.budgetQuantity}</td>
+  <td>${budgetObject.budgetPrice}</td>
+  <td>${budgetObject.budgetQuantity * budgetObject.budgetPrice}</td>
+  <td><button class="btn btn-success">Edit</button>
+  <button class="btn btn-danger">Edit</button></td>
   </tr>
-  </tbody>
-  `
+  </tbody>`
   })
 }

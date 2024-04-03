@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script defer src="script.js"></script>
   <title>Landing Page</title>
 </head>
 
@@ -20,13 +22,21 @@
       <p>BUDGET</p>
       <input placeholder="Your Budget" class="subscribe-input" name="email" type="email" id="budgetInput">
       <br>
-      <div class="submit-btn" onclick="proceed()">SUBMIT</div>
+      <div class="submit-btn" onclick="proceedTo()">SUBMIT</div>
     </div>
 
   </main>
 
-
-  <script src="script.js"></script>
+  <script>
+    const proceedTo = () => {
+      if (budgetInput.value == "") {
+        hideError.style.display = "block";
+      } else {
+        window.location.href = "main.html";
+      }
+    };
+  </script>
+  <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
