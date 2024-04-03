@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-blac">
-    <div class="svg-frame mx-auto">
+    <div class="svg-frame mx-auto mb-5">
         <svg style="--i:0;--j:0;">
             <g id="out1">
                 <path
@@ -121,11 +121,37 @@
         </div>
     </div>
 
-    <button onclick="checking()">try</button>
+    <!-- <button onclick="checking()">try</button> -->
     <table id="displayAll"></table>
 
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Product" id="">
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Quantity" id="">
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Price" id="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <script src="bootstrap.js"></script>
     <script src="script.js"></script>
 </body>
 
