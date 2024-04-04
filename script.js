@@ -4,6 +4,7 @@ let budArray = [];
 let budgetCash;
 let budgetObject = {};
 let newIndex;
+let editorMsg;
 
 // let budgetObject = { budgetProduct, budgetQuantity, budgetPrice };
 
@@ -46,6 +47,7 @@ const enterAmount = () => {
     console.log("budgetCash", budgetCash);
   }
 };
+
 const removeOrAdd = () => {
   let budgetObject = {
     budgetProduct: document.getElementById("productName").value,
@@ -97,5 +99,37 @@ const counterBudget = () => {
 };
 
 const collectIndex = (i) => {
-  newIndex = i;
+  budArray.forEach((editedItem, index) => {
+    if (index === i) {
+      editorMsg = editedItem;
+    }
+  });
+};
+
+const editAny = () => {
+  if (
+    editedInput1.value === "" ||
+    editedInput2.value === "" ||
+    editedInput3.value === ""
+  ) {
+    document.getElementById("errorMessage").style.display = "block";
+  } else {
+    let modalInput = {
+      budgetProduct: editedInput1.value,
+      budgetQuantity: parseInt(editedInput2.value),
+      budgetPrice: parseInt(editedInput3.value),
+      totalPrice: parseInt(editedInput2.value * editedInput3.value),
+    };
+    console.log(modalInput);
+    budgetCash = budgetCash + editorMsg.totalPrice - modalInput.totalPrice;
+
+    budArray.splice(newIndex, 1, modalInput);
+
+    editedInput1.value = "";
+    editedInput2.value = "";
+    editedInput3.value = "";
+
+    budgetAmount.innerHTML = budgetCash;
+    counterBudget();
+  }
 };

@@ -10,7 +10,7 @@
     color: seagreen;
 }
 
-#hideError, #msgError{
+#hideError, #msgError, #errorMessage{
   display: none;
 }
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Images/download-removebg-preview (1).png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Main Page</title>
 </head>
@@ -134,17 +135,19 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT YOUR BUDGET</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Product" id="">
-            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Quantity" id="">
-            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Price" id="">
+            <p class="alert alert-danger text-center p-1 mx-auto animate__animated animate__bounce" id="errorMessage">Fill
+                in the space</p>
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Product" id="editedInput1">
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Quantity" id="editedInput2">
+            <input type="text" class="form-control form-control-sm my-3 shadow-none" placeholder="Price" id="editedInput3">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" onclick="editAny()">Save changes</button>
         </div>
       </div>
     </div>
