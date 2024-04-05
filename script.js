@@ -6,8 +6,6 @@ let budgetObject = {};
 let newIndex;
 let editorMsg;
 
-// let budgetObject = { budgetProduct, budgetQuantity, budgetPrice };
-
 // if(localStorage.budgetValue){
 //   myArray = JSON.parse(localStorage.getItem('budgetValue'))
 // }
@@ -28,14 +26,22 @@ const addMyBudget = () => {
     document.getElementById("msgError").style.display = "block";
   } else {
     budArray.push(budgetObject);
-
+    productName.value = "";
+    productQuantity.value = "";
+    productPrice.value = "";
     // localStorage.setItem("BudgetsValue", JSON.stringify(myArray));
     removeOrAdd();
-    // productName.value === "";
-    // productQuantity.value === "";
-    // productPrice.value === "";
   }
 };
+
+const delMyBudget = () => {
+  let questConfirm = confirm('Are you sure? This action is irreversible')
+  if(questConfirm){
+    budArray.splice(0, budArray.length)
+    counterBudget()
+    displayAll.style.display = "none"
+  }
+}
 
 const enterAmount = () => {
   budgetCash = document.getElementById("enterBudget").value;
@@ -55,9 +61,7 @@ const removeOrAdd = () => {
     budgetPrice: Number(productPrice.value),
     totalPrice: Number(productPrice.value * productQuantity.value),
   };
-  // budgetCash = document.getElementById('enterBudget').value
-  // budgetCash = Number(budgetCash-budgetObject.totalPrice)
-  // console.log(budgetObject.totalPrice);
+ 
   if (budgetObject.totalPrice > budgetCash) {
     alert("are you a thief");
   } else if (budgetObject.totalPrice <= budgetCash) {
@@ -92,7 +96,7 @@ const counterBudget = () => {
   <td>${budgetObject.budgetPrice}</td>
   <td>${budgetObject.totalPrice}</td>
   <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="collectIndex(${index})">Edit</button>
-  <button class="btn btn-danger">Delete</button></td>
+  <button class="btn btn-danger" onclick= "deleteIndex()">Delete</button></td>
   </tr>
   </tbody>`;
   });
@@ -133,3 +137,12 @@ const editAny = () => {
     counterBudget();
   }
 };
+
+const deleteIndex = () => {
+  let askMe = confirm('Are you sure?')
+  if(askMe){
+    budArray.splice(newIndex,1)
+    counterBudget()
+    displayAll.style.display = "none"
+  }
+}
